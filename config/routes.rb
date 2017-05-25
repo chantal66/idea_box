@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :ideas, only: [:index]
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, except: [:index] do
     resources :ideas, only: [:create, :destroy]
   end
 

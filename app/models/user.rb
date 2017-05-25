@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  validates :username, presence: true, uniqueness: true
+  validates :password, presence: true
   validates :email, presence: true, uniqueness: true
 
-  def email_required?
-    true
-  end
 end

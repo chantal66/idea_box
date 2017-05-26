@@ -1,13 +1,9 @@
 require 'rails_helper'
+require 'login_helper'
 
 RSpec.feature 'User can logout' do
   scenario 'logged in user can logout' do
-    user = User.create(username: 'chantal', email: 'chantal@example.com', password: 'password')
-
-      visit login_path
-      fill_in 'Username', with: user.username
-      fill_in 'Password', with: 'password'
-      click_button 'Login'
+      user_login
 
       visit ideas_path
       click_link 'Logout'
@@ -20,3 +16,4 @@ RSpec.feature 'User can logout' do
       expect(page).to have_link('Create Account', href: new_user_path)
   end
 end
+

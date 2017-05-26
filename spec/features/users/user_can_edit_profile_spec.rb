@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'login_helper'
 
 RSpec.feature 'user can edit their account' do
   context 'they supply valid information' do
@@ -22,6 +23,23 @@ RSpec.feature 'user can edit their account' do
       expect(page).to have_content('Profile updated successfully')
       expect(page).to have_content('Welcome, Chantal Justamond!')
       expect(page).not_to have_content("Welcome, #{previous_name}!")
+    end
+  end
+
+  context 'user supply invalid information' do
+    scenario  'logged in user visits page to edit their profile' do
+      skip
+      user_login
+      another_user = create(:user)
+
+      visit edit_user_path(User.first)
+      fill_in 'Username', with: another_user.username
+      fill_in 'Password', with: 'incorrect'
+      click_button 'Update User'
+
+      expect(page).to have_content('Username has already been taken')
+      expect(page).to have_content("Welcome, #{User.first.username}!")
+      expect(page).not_to have_content("Welcome, #{another_user.username}!")
     end
   end
 end

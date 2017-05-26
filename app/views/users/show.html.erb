@@ -3,3 +3,5 @@
 <p>Email: <%= @user.email %></p>
 
 <%= link_to 'Edit Profile', edit_user_path(@user), class: 'btn btn-warning' %>
+
+<%= link_to 'Delete Profile',@user, method: :delete, class: 'btn btn-danger' %>

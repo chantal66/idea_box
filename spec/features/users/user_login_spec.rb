@@ -47,3 +47,4 @@ RSpec.feature 'registered user can login' do
     end
   end
 end
+

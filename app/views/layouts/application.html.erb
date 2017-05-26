@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  <%= render partial: 'shared/navbar' %>
+  <%= render partial: 'shared/navbar' %> <br><br>
   <div class="container">
     <% flash.each do |type, msg| %>
         <%= content_tag :div, class: "alert alert-#{type} alert-dismissabletext-center", role: 'alert' do %>

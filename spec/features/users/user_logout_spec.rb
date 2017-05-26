@@ -19,6 +19,5 @@ RSpec.feature 'User can logout' do
       expect(page).not_to have_content('Welcome, Chantal!')
       expect(page).to have_link('Login', href: login_path)
       expect(page).to have_link('Create Account', href: new_user_path)
-      # refute page.has_content?('Welcome, admin')
   end
 end

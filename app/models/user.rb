@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :email, presence: true, uniqueness: true
 
+  has_many :ideas
 end

@@ -39,6 +39,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'pry'
+  gem 'launchy'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 3.1'

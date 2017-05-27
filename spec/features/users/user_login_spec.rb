@@ -12,7 +12,7 @@ RSpec.feature 'registered user can login' do
       fill_in 'Password', with: 'password'
       click_button 'Login'
 
-      expect(current_path).to eq(ideas_path)
+      expect(current_path).to eq("/users/#{User.last.id}/ideas")
       expect(page).to have_content("Welcome, #{user.username}!")
       expect(page).to have_link("Logout", href: logout_path)
     end

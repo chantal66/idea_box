@@ -1,4 +1,4 @@
-<%= form_for(@idea, html: {class: 'form-horizontal'}) do |f| %>
+<%= form_for [@user, @idea], html: {class: 'form-horizontal'} do |f| %>
     <div class="field form-group">
       <%= f.label :title, class: 'col-sm-2 control-label' %>
       <div class="col-sm-6">

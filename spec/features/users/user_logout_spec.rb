@@ -5,7 +5,7 @@ RSpec.feature 'User can logout' do
   scenario 'logged in user can logout' do
       user_login
 
-      visit ideas_path
+      visit ("/users/#{User.last.id}/ideas")
       click_link 'Logout'
 
       expect(current_path).to eq(root_path)

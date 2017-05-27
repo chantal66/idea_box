@@ -1,21 +1,24 @@
 require 'rails_helper'
-require 'login_helper'
 
 describe 'User create a new idea' do
   scenario 'a user can create a new idea' do
+    user = create(:user)
+    visit root_path
 
-    user_login
+    click_on 'Login'
+    fill_in 'Username', with: user.username
+    fill_in 'Password', with: 'password'
+    click_button 'Login'
+
     click_on 'New Idea'
 
-    expect(current_path).to eq(new_user_idea_path)
-
+    expect(current_path).to eq(new_user_idea_path(user))
     fill_in 'idea[title]', with: 'Weather App'
     fill_in 'idea[description]', with: 'Some awesome description goes here'
     click_button 'Create Idea'
 
-    # expect(current_path).to eq(user_idea_path)
+    expect(current_path).to eq("/users/#{user.id}/ideas/#{Idea.last.id}")
     expect(page).to have_content('Weather App')
     expect(page).to have_content('Some awesome description goes here')
-
   end
 end

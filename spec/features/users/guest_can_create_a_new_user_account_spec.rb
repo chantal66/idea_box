@@ -15,7 +15,7 @@ describe 'Users can be created' do
 
       click_button 'Create User'
 
-      expect(current_path).to eq(ideas_path)
+      expect(current_path).to eq("/users/#{User.last.id}/ideas")
       expect(page).to have_content("Account created successfully!")
       expect(page).to have_content("Welcome, chantal!")
       expect(page).to have_link("Logout", href: logout_path)

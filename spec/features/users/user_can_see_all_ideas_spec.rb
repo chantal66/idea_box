@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe 'User can see all ideas' do
   scenario 'a user can see all ideas' do
-    user = create(:user)
-    @idea = user.ideas.create(title: 'Weather App', description: 'Awesome, never seen app')
-    @idea = user.ideas.create(title: 'invisible mug', description: 'terrible idea')
+    user = User.create!(username: 'chantal', email: 'chantal@example.com', password: 'password')
+    # binding.pry
+    user.ideas.create!(title: 'Weather App', description: 'Awesome, never seen app')
+    user.ideas.create!(title: 'invisible mug', description: 'terrible idea')
 
     visit user_ideas_path(user)
 

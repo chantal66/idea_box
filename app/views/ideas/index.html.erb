@@ -1,12 +1,12 @@
-<h2>ALL IDEAS  </h2>
+<div class="container">
+  <div class="page-header">
+    <div class="btn-toolbar pull-right">
+      <%= link_to 'New Idea', new_user_idea_path, class: 'btn btn-default' %>
+    </div>
+    <h2>All Ideas</h2>
+  </div>
+</div>
 
-<%# if current_user && !current_admin? %>
-  <%= content_tag :div, class: 'col-md-12 text-center' %>
-    <p class="lead">
-      do something
-    </p>
-<%# end %>
-<%= link_to 'New Idea', new_user_idea_path, class: 'btn btn-default' %>
 <% @ideas.each do |idea| %>
-  <%=  %>
+  <%= link_to idea.title, user_idea_path(@user, idea) %>
 <% end %>

@@ -4,4 +4,9 @@ class IdeasController < ApplicationController
     @ideas = Idea.all
     @user = current_user
   end
+
+  def new
+    # @user = current_user
+    # @idea = @user.Idea.new
+  end
 end

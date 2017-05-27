@@ -7,6 +7,10 @@ Rails.application.routes.draw do
      resources :ideas, only: [:index, :new, :create, :show]
   end
 
+  namespace :admin do
+    resources :categories, only: [:index, :new, :create, :show, :destroy]
+  end
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

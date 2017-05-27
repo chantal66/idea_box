@@ -8,9 +8,9 @@
           <p class="navbar-text navbar-left">Welcome, <%= current_user.username %>!</p>
           <li class="navbar-left"><%= link_to "Logout", logout_path, method: :delete %></li>
           <li class="navbar-left"><%= link_to "Account", current_user %></li>
-          <%# if current_admin? %>
-              <!--<li class="navbar-right"><%#= link_to "Categories", admin_categories_path %></li>-->
-          <%# end %>
+          <% if current_admin? %>
+              <li class="navbar-right"><%= link_to "Categories", admin_categories_path %></li>
+          <% end %>
       <% else %>
           <li class="navbar-left"><%= link_to "Login", login_path %></li>
           <li class="navbar-left"><%= link_to "Create Account", new_user_path %></li>

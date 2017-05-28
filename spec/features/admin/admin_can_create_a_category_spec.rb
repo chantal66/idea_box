@@ -20,7 +20,6 @@ RSpec.feature 'Admin can create a category' do
 
   context 'with invalid category name' do
     scenario 'logged in admin visits the admin categories page' do
-      skip
       admin = create(:admin)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       category = create(:category)

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :assign_user, only: [:show, :edit, :destroy, :update]
-  before_action :verify_logged_in, except: [:new, :create]
+  # before_action :verify_logged_in, except: [:new, :create]
 
   def new
     @user = User.new

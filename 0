@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20170527201804_change_column_role_to_0.rb

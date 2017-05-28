@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   it {should validate_uniqueness_of(:username)}
   it {should validate_presence_of(:email)}
   it {should validate_uniqueness_of(:email)}
-  xit {should have_db_column(:role).with_options(default: 0)}
+  it {should have_db_column(:role).with_options(default: 'default')}
 end
 
 RSpec.describe User do

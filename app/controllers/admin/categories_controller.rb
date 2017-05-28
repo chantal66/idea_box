@@ -16,7 +16,7 @@ class Admin::CategoriesController < ApplicationController
       flash[:success] = 'Category created succesfully'
       redirect_to admin_category_path(@category)
     else
-      flash[:danger] = @category.errors.full_messages.join(', ')
+      flash.now[:danger] = @category.errors.full_messages.join(', ')
       render :new
     end
   end

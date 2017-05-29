@@ -11,6 +11,13 @@
         <%= f.text_field :description, placeholder: 'Title', class: 'form-control' %>
       </div>
     </div>
+    <div class="field form-group">
+      <%= f.label :category_id, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-6">
+        <%#= f.collection_select :category_id, Category.all, :id, :title, :required => true, class: 'form-control' %>
+       <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+      </div>
+    </div>
     <div class="actions form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <%= f.submit class: 'btn btn-success' %>

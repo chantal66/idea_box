@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   has_many :ideas
+  has_many :categories, source: :ideas
 
   enum role: ['default', 'admin']
+
 end

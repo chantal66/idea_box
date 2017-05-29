@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_user, only: [:index, :new, :create]
+  before_action :set_user, only: [:index, :new, :create, :show]
   before_action :set_idea, only: [:show]
 
   def index
@@ -12,13 +12,13 @@ class IdeasController < ApplicationController
 
   def create
     @idea = @user.ideas.new(idea_params)
+      # binding.pry
     if @idea.save
       flash[:success] = "You have successfully created an Idea called #{@idea.title}"
       redirect_to user_idea_path(@user, @idea)
     else
       render :new
     end
-
   end
 
   def show
@@ -35,6 +35,6 @@ class IdeasController < ApplicationController
     @idea = @user.ideas.find(params[:id])
   end
   def idea_params
-    params.require(:idea).permit(:title, :description)
+    params.require(:idea).permit(:title, :description, :category)
   end
 end

@@ -14,7 +14,6 @@
     <div class="field form-group">
       <%= f.label :category_id, class: 'col-sm-2 control-label' %>
       <div class="col-sm-6">
-        <%#= f.collection_select :category_id, Category.all, :id, :title, :required => true, class: 'form-control' %>
        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
       </div>
     </div>

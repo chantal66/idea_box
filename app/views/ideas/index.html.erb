@@ -8,5 +8,5 @@
 </div>
 
 <% @ideas.each do |idea| %>
-  <%= link_to idea.title, user_idea_path(@user, idea) %>
+  <ul><%= link_to idea.title, user_idea_path(@user, idea) %></ul>
 <% end %>

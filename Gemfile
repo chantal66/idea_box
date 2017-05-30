@@ -43,6 +43,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 group :development do

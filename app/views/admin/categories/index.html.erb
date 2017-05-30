@@ -1,5 +1,11 @@
 <h1>Admin Categories</h1>
+<div class="btn btn-toolbar pull-right">
+  <%= link_to 'Create Category', new_admin_category_path, class: 'btn btn-default' %>
+</div>
 
+<% @categories.each do |category| %>
+  <ul>
+    <li><%= category.name %> <br> <%= image_tag(category.image_url(:thumb).to_s) %></li>
 
-<%= link_to 'Create Category', new_admin_category_path, class: 'btn btn-default' %>
-
+  </ul>
+<% end %>
